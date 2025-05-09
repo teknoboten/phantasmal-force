@@ -1,26 +1,28 @@
 #  Phantasmal Force 🐍🌀
-Some python scripts to make inventory management a certain vendor slightly? less painful. Assuming you have knowledge and access to do the things. 
+Some python scripts to make inventory management a certain vendor slightly? less painful.
 
 ## Set up your python virtual environment 
 
-```zsh
-#create it*
-python3 -m venv venv
-
-#activate it*
-source venv/bin/activate
-
-#check it*
-where python
+Create it:
 ```
+python3 -m venv venv
+```
+
+Activate it
+```
+source venv/bin/activate
+```
+
 ## Update Local Library
-- Export a copy of your current item library
+You are going to export a copy of our current library and save it to the project directory
+
+- Go to Items → Action → Export
 - Save it in this directory as 'currentcat.csv'
+- Replace existing file → yes
 
 ## Get Order Details
-- Copy order details from the vendor website into 'data.txt' 
+Copy order details from the vendor website into 'data.txt'. It will look like this, only much much much longer.
 
-Example data.txt
 ```
 6056133005249       | * Item 1* GTIN
 I AM A FAKE ITEM    | * Item 1* Name
@@ -36,44 +38,50 @@ $18.40              | * Item 2* Order Total
 
 ## Create and compare CSV files
 
-```zsh
-# Create a spreadsheet for the order
-py minor-illusion.py
+Create a spreadsheet for the order
 
-# Compare GTIN against existing library
+```
+py minor-illusion.py
+```
+
+Compare GTIN against existing library
+```
 py compare-gtin.py
 ```
 
-- This will generate 'new_items.csv'
-- Open 'new_items.csv' in your spreadsheet application of choice 
+This will generate 'new_items.csv'
 
-### Purchase Order Template
-- Open 'library_template.xlsx' 
-- The version included in this repo has some custom formatting to make your life easier
+## Purchase Order Template
+- Open your spreadsheet application of choice 
+- Open 'new_items.csv' and 'library_template.xlsx' from the project directory
 
-### Duplicate and Update Library Template 
-Before you start working, duplicate the template and give it a useful name. Save to a shared drive and work from there.
+Note: The version included in this repo has some custom formatting to make your life easier
 
-*Adding New Item Data*
+## Duplicate and Update Library Template 
+*Before you start working*
+- Duplicate the template and give it a useful name
+- Save to a different location (shared drives are good) and work from there 
+
+### Adding New Item Data
 Now you are going to add the new items to the duplicate template you just created.  
 - Open 'new_items.csv'
 - Starting at row 2, copy the 'Item Name' Column from 'new_items.csv'
 - Paste into your template using 'Paste and match style'
 - Repeat for GTIN and Unit Cost 
 
-Note: GTIN must be formatted as 'text'
+*Note: GTIN must be formatted as 'text'*
 
-*Pricing*
-Once you have added Item Name, GTIN and Unit Costs, we need to add price
+### Pricing
+Once you have added Item Name, GTIN and Unit Costs, you need to add price
 - Sort the template by ascending unit cost
 - Use standard pricing practices 
 
-*Finish the Template*
+### Finish the Template
 - Ensure all of the yellow columns are filled in: Reporting Category, Default Vendor Name, Tax
 - Tax should be 'Y' in everything except for books
 - Export the finished template to .xlsx file
 
 
-## Import Template
+### Import Template
 - Import your freshly exported and updated template using
 - DO NOT OVERWRIGHT THE ENTIRE EXISTING LIBRARY OR YOU WILL HAVE A BAD TIME 
